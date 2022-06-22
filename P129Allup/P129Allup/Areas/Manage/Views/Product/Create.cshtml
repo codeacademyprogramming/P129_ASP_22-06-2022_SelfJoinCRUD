@@ -1,0 +1,35 @@
+﻿@*@using P129Allup.Areas.Manage.Controllers
+@model Student
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-lg-8" >
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="SurName" class="form-label"></label>
+                <input asp-for="SurName" class="form-control">
+                <span class="text-danger" asp-validation-for="SurName"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Age" class="form-label"></label>
+                <input asp-for="Age" class="form-control">
+                <span class="text-danger" asp-validation-for="Age"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control">
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>*@

@@ -1,0 +1,44 @@
+﻿@model PageNatedLisd<Category>
+@{
+    int no = Model.ItemCount * (Model.Page - 1);
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category Type</th>
+            <th>Status</th>
+            <th>Setting</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Category category in Model)
+        {
+            no++;
+
+        <tr>
+            <td>@no</td>
+            <td>@category.Image</td>
+            <td>@category.Name</td>
+            <td>@(category.IsMain ? "Esas":"Alt")</td>
+            <td style="color:@(category.IsDeleted ? "red":"green")">@(category.IsDeleted ? "De Active":"Active")</td>
+            <td>
+                <a class="btn btn-warning" asp-area="manage" asp-controller="category" asp-action="update" asp-route-id="@category.Id">Update</a>
+
+                @if (category.IsDeleted)
+                {
+                    <a class="btn btn-primary restoreBtn" asp-area="manage" asp-controller="category" asp-action="Restore" asp-route-id="@category.Id" asp-route-status="@ViewBag.Status">Restore</a>
+                }
+                else
+                {
+                    <a class="btn btn-danger deleteBtn" asp-area="manage" asp-controller="category" asp-action="delete" asp-route-id="@category.Id" asp-route-status="@ViewBag.Status">Delete</a>
+                }
+            </td>
+        </tr>
+
+        }
+    </tbody>
+</table>
